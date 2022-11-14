@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "hardhat/console.sol";
 
-// We need to import the helper functions from the contract that we copy/pasted.
+// import the helper functions from the contract
 import { Base64 } from "./libraries/Base64.sol";
 
 contract MyEpicNFT is ERC721URIStorage {
@@ -69,7 +69,7 @@ event NewEpicNFTMinted(address sender, uint256 tokenId);
             string(
                 abi.encodePacked(
                     '{"name": "',
-                    // We set the title of our NFT as the generated word.
+                    // set the title of our NFT as the generated word.
                     combinedWord,
                     '", "description": "A highly acclaimed collection of squares.", "image": "data:image/svg+xml;base64,',
                     // We add data:image/svg+xml;base64 and then append our base64 encode our svg.
@@ -82,7 +82,7 @@ event NewEpicNFTMinted(address sender, uint256 tokenId);
         
     );
 
-    // Just like before, we prepend data:application/json;base64, to our data.
+    // prepend data:application/json;base64, to  data.
     string memory finalTokenUri = string(
         abi.encodePacked("data:application/json;base64,", json)
     );
